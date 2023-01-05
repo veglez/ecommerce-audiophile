@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const Paths = require("tsconfig-paths-webpack-plugin");
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -26,10 +27,15 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.(svg|png|jpe?g|webp|gif)/i,
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
+    plugins: [new Paths()],
   },
   plugins: [
     new HtmlWebpackPlugin({
