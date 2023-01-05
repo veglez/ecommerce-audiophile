@@ -7,6 +7,7 @@ const devConfig = {
     port: 3005,
     hot: true,
     open: true,
+    historyApiFallback: true,
   },
   mode: "development",
 };
