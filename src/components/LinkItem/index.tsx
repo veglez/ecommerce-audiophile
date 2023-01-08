@@ -1,20 +1,33 @@
 import React, { FC } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, NavLinkProps } from "react-router-dom";
 import styles from "./styles.link.module.scss";
 
-interface ILinkItemProps {
-  to: string;
-  children: React.ReactNode;
-}
+export type ILinkItemExtraProps = {
+  styleOnActive?: boolean;
+  activeClassName?: string;
+};
+
+export type ILinkItemProps = NavLinkProps &
+  React.RefAttributes<HTMLAnchorElement> &
+  ILinkItemExtraProps;
 
 const LinkItem: FC<ILinkItemProps> = (props) => {
-  const { to, children } = props;
+  const {
+    to,
+    children,
+    styleOnActive = true,
+    activeClassName,
+    ...rest
+  } = props;
   return (
     <NavLink
       to={to}
       className={({ isActive }) => {
-        return isActive ? styles.active2 : undefined;
+        return styleOnActive && isActive
+          ? activeClassName ?? styles.active
+          : undefined;
       }}
+      {...rest}
     >
       {children}
     </NavLink>

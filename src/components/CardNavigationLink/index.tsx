@@ -1,8 +1,12 @@
 import Button from "components/Button";
 import React, { FC } from "react";
-import { ArticleStyled } from "./styles.cardNavigationLink";
+import {
+  StyledPicture,
+  StyledArticle,
+  Text,
+} from "./styles.cardNavigationLink";
 
-interface ICardNavigationLinkProps {
+export interface ICardNavigationLinkProps {
   image: string;
   title: string;
 }
@@ -10,14 +14,14 @@ interface ICardNavigationLinkProps {
 const CardNavigationLink: FC<ICardNavigationLinkProps> = (props) => {
   const { title, image } = props;
   return (
-    <ArticleStyled>
-      <picture>
+    <StyledArticle>
+      <StyledPicture>
         <img src={image} alt={`image of category ${title}`} />
-      </picture>
-      <h2>{title}</h2>
+      </StyledPicture>
+      <Text>{title}</Text>
 
       <Button text="shop" type="filled" />
-    </ArticleStyled>
+    </StyledArticle>
   );
 };
 

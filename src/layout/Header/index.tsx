@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/TextOnly";
 import Logo from "../../statics/assets/shared/desktop/logo.svg";
 
 const Header = () => {
