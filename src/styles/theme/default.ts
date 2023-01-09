@@ -26,6 +26,11 @@ const myTheme: DefaultTheme = {
       regular: 4000,
     },
   },
+  breakpoints: {
+    mobile: 375,
+    tablet: 750,
+    desktop: 1300,
+  },
 };
 
 export default myTheme;

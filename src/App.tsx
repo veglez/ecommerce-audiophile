@@ -23,8 +23,8 @@ const App = () => {
     <div>
       <Header />
 
-      <CardNavigation />
-      <CardNavigationLink {...props} />
+      {/* <CardNavigation /> */}
+      {/* <CardNavigationLink {...props} /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:category" element={<Category />} />

@@ -10,9 +10,9 @@ const withNavigation = (
   list: ILinkItemProps[],
   config?: ILinkItemExtraProps
 ) =>
-  function Navbar() {
+  function Navbar(innerProps: any) {
     return (
-      <Container>
+      <Container {...innerProps}>
         {list.map((props, i) => (
           <LinkItem key={i} {...props} {...config} />
         ))}
