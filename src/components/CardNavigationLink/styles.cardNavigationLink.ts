@@ -13,7 +13,7 @@ export const StyledArticle = styled.article`
   flex-direction: column;
   align-items: center;
 
-  @media screen and (${(props) => props.theme.breakpoints.desktop}px) {
+  @media screen and (${(props) => props.theme.breakpoints.desktop}) {
     padding-block-start: 116px;
   } ;
 `;

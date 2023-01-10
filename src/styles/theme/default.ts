@@ -1,5 +1,11 @@
 import { DefaultTheme } from "styled-components";
 
+export const breakpoints = {
+  mobile: "375px",
+  tablet: "768px",
+  desktop: "1300px",
+} as const;
+
 const myTheme: DefaultTheme = {
   pallete: {
     main: {
@@ -26,11 +32,7 @@ const myTheme: DefaultTheme = {
       regular: 4000,
     },
   },
-  breakpoints: {
-    mobile: 375,
-    tablet: 750,
-    desktop: 1300,
-  },
+  breakpoints,
 };
 
 export default myTheme;

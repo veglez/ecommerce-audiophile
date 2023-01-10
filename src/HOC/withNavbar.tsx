@@ -10,11 +10,12 @@ const withNavigation = (
   list: ILinkItemProps[],
   config?: ILinkItemExtraProps
 ) =>
-  function Navbar(innerProps: any) {
+  function Navbar(innerProps: React.HTMLAttributes<HTMLElement>) {
+    const { onClick, ...rest } = innerProps;
     return (
-      <Container {...innerProps}>
+      <Container {...rest}>
         {list.map((props, i) => (
-          <LinkItem key={i} {...props} {...config} />
+          <LinkItem onClick={onClick} key={i} {...props} {...config} />
         ))}
       </Container>
     );

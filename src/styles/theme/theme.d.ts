@@ -28,9 +28,9 @@ declare module "styled-components" {
       };
     };
     breakpoints: {
-      mobile: number;
-      tablet: number;
-      desktop: number;
+      mobile: string;
+      tablet: string;
+      desktop: string;
     };
   }
 }
