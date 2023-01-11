@@ -9,12 +9,25 @@ import Header from "./layout/Header";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import Globals from "@styles/Globals";
+import Typography from "@components/Typography";
+import SeeProductCard from "@components/SeeProductCard";
+import Mobile from "@images/product-xx99-mark-one-headphones/mobile/image-product.jpg";
+import tablet from "@images/product-xx99-mark-one-headphones/tablet/image-product.jpg";
+import desktop from "@images/product-xx99-mark-one-headphones/desktop/image-product.jpg";
 
 const App = () => {
   return (
     <>
       <Globals />
       <Header />
+      <Typography as="h1" variant="overline">
+        texto con estilos
+      </Typography>
+
+      <SeeProductCard
+        title="xx99 mark I"
+        src={{ mobile: Mobile, tablet, desktop }}
+      />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
