@@ -1,6 +1,7 @@
 //children
 
 import { FC } from "react";
+import { withHTMLAttributes } from "types/utilities";
 import { Text } from "./styles.typography";
 
 export interface ITypographyProps {
@@ -18,12 +19,10 @@ export interface ITypographyProps {
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
-const Typography: FC<ITypographyProps & React.HTMLAttributes<HTMLElement>> = (
-  props
-) => {
-  const { children, variant = "body", as = "p" } = props;
+const Typography: FC<withHTMLAttributes<ITypographyProps>> = (props) => {
+  const { children, variant = "body", as = "p", ...rest } = props;
   return (
-    <Text as={as} variant={variant}>
+    <Text as={as} variant={variant} {...rest}>
       {children}
     </Text>
   );

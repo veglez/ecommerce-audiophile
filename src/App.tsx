@@ -1,5 +1,3 @@
-import React from "react";
-// import "./styles/globals.scss";
 import { Routes, Route } from "react-router-dom";
 import Category from "./pages/Category";
 import ProductDetails from "./pages/ProductDetails";
@@ -20,7 +18,16 @@ const App = () => {
     <>
       <Globals />
       <Header />
-      <Typography as="h1" variant="overline">
+      <Typography
+        as="h1"
+        variant="overline"
+        style={{
+          opacity: 0.15,
+          color: "#542087",
+          fontSize: "8rem",
+          width: "80vw",
+        }}
+      >
         texto con estilos
       </Typography>
 
