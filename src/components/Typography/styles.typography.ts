@@ -59,10 +59,11 @@ const TypographyVariants: Record<
   `,
 };
 
-type Variant = Required<Pick<ITypographyProps, "variant">>;
+type Variant = Required<Pick<ITypographyProps, "variant" | "align">>;
 
 export const Text = styled.p<Variant>`
   text-transform: uppercase;
   font-weight: ${(props) => props.theme.typography.weights.bold};
+  text-align: ${(props) => props.align};
   ${(props) => TypographyVariants[props.variant]}
 `;

@@ -29,7 +29,7 @@ const myTheme: DefaultTheme = {
     weights: {
       bold: 700,
       medium: 500,
-      regular: 4000,
+      regular: 400,
     },
   },
   breakpoints,

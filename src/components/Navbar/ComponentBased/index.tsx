@@ -1,7 +1,7 @@
 import React from "react";
 import CardNavigationLink, {
   ICardNavigationLinkProps,
-} from "components/CardNavigationLink";
+} from "@components/Card/CardNavigationLink";
 import headphone from "@images/menu/headphone.png";
 import speaker from "@images/menu/speaker.png";
 import earphone from "@images/menu/earphone.png";

@@ -22,6 +22,7 @@
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
+    "msw": "^0.49.2",
     "prettier": "^2.8.1",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
@@ -42,5 +43,8 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.development.js"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

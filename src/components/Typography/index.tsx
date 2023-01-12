@@ -17,12 +17,19 @@ export interface ITypographyProps {
     | "subtitle"
     | "body";
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  align?: "center" | "justify" | "right" | "left";
 }
 
 const Typography: FC<withHTMLAttributes<ITypographyProps>> = (props) => {
-  const { children, variant = "body", as = "p", ...rest } = props;
+  const {
+    children,
+    variant = "body",
+    as = "p",
+    align = "left",
+    ...rest
+  } = props;
   return (
-    <Text as={as} variant={variant} {...rest}>
+    <Text as={as} variant={variant} align={align} {...rest}>
       {children}
     </Text>
   );
