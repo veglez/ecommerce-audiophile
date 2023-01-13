@@ -3,14 +3,14 @@ import { FC, useState } from "react";
 import { Container } from "./styles.counter";
 
 const Counter: FC = () => {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
 
   const handleIncrement = () => {
     setCounter(counter + 1);
   };
 
   const handleDecrement = () => {
-    const newState = counter <= 0 ? 0 : counter - 1;
+    const newState = counter <= 1 ? 1 : counter - 1;
     setCounter(newState);
   };
 

@@ -4,6 +4,8 @@ import App from "./App";
 import { ThemeProvider } from "styled-components";
 import myTheme from "./styles/theme/default";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "redux/store";
 
 const root = ReactDom.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,8 +19,10 @@ if (process.env.NODE_ENV === "development") {
 
 root.render(
   <ThemeProvider theme={myTheme}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </ThemeProvider>
 );

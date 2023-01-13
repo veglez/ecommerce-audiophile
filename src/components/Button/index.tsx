@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { withHTMLAttributes } from "types/utilities";
 import { ButtonStyled } from "./styles.button";
 
 export type IButtonProps =
@@ -13,11 +14,11 @@ export type IButtonProps =
       Icon: React.ReactNode;
     };
 
-const Button: FC<IButtonProps> = (props) => {
-  const { text, type, Icon } = props;
+const Button: FC<withHTMLAttributes<IButtonProps>> = (props) => {
+  const { text, type, Icon, ...rest } = props;
 
   return (
-    <ButtonStyled innerType={type}>
+    <ButtonStyled innerType={type} {...rest}>
       <span className="button__text">{text}</span>
       {Icon && Icon}
     </ButtonStyled>

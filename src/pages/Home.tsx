@@ -1,7 +1,21 @@
+import { RootState } from "@redux/store";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Home = () => {
-  return <div>Home</div>;
+  const state = useSelector((state: RootState) => state.cart);
+
+  return (
+    <div>
+      <h1>Home</h1>
+
+      <p>En el carrito de compras se encuentran los siguientes productos:</p>
+
+      {state.products.map((item) => {
+        return <p key={item.product.id}>{item.product.name}</p>;
+      })}
+    </div>
+  );
 };
 
 export default Home;

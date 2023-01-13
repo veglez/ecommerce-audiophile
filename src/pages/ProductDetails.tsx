@@ -33,16 +33,7 @@ const ProductDetails = () => {
     <div>
       <h2>Product Details page</h2>
       {products.slice(0, 1).map((item) => {
-        return (
-          <ProductDetailsCard
-            key={item.name}
-            title={item.name}
-            description={item.description}
-            isNew={item.new}
-            price={item.price}
-            images={item.image}
-          />
-        );
+        return <ProductDetailsCard key={item.name} {...item} />;
       })}
     </div>
   );
