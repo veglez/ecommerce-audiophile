@@ -32,7 +32,7 @@ const ProductDetails = () => {
   return (
     <div>
       <h2>Product Details page</h2>
-      {products.slice(0, 1).map((item) => {
+      {products.map((item) => {
         return <ProductDetailsCard key={item.name} {...item} />;
       })}
     </div>
