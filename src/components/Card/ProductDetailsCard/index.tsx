@@ -1,13 +1,12 @@
 import Button from "@components/Button";
-import Counter from "@components/Counter";
+import Counter, { ICounterRef } from "@components/Counter";
 import Typography from "@components/Typography";
 import Flex from "@components/UI/Flex";
 import { breakpoints } from "@styles/theme/default";
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { PickRequired } from "types/utilities";
 import { NewProductText } from "./styles.productdetailscard";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "@redux/store";
+import { useDispatch } from "react-redux";
 import { addProducts } from "@redux/features/cart/cartSlice";
 
 export type IProductDetailsCardProps = PickRequired<
@@ -17,8 +16,8 @@ export type IProductDetailsCardProps = PickRequired<
 
 const ProductDetailsCard: FC<IProductDetailsCardProps> = (props) => {
   const { image, new: isNew, name, description, price } = props;
-  const state = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
+  const counterRef = useRef<ICounterRef | null>(null);
 
   return (
     <Flex as="article" gap={32} direction={"column"}>
@@ -53,13 +52,18 @@ const ProductDetailsCard: FC<IProductDetailsCardProps> = (props) => {
         justify={"flex-start"}
         align={"stretch"}
       >
-        <Counter />
+        <Counter ref={counterRef} />
         <Button
           type="filled"
           text="add to cart"
-          onClick={() =>
-            dispatch(addProducts({ product: props as API.Product, count: 4 }))
-          }
+          onClick={() => {
+            dispatch(
+              addProducts({
+                product: props as API.Product,
+                count: counterRef.current?.counter ?? 1,
+              })
+            );
+          }}
         />
       </Flex>
     </Flex>

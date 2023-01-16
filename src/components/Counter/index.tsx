@@ -1,8 +1,12 @@
 import Typography from "@components/Typography";
-import { FC, useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 import { Container } from "./styles.counter";
 
-const Counter: FC = () => {
+export interface ICounterRef {
+  counter: number;
+}
+
+const Counter = forwardRef<ICounterRef, object>(function Counter(_, ref) {
   const [counter, setCounter] = useState(1);
 
   const handleIncrement = () => {
@@ -13,6 +17,8 @@ const Counter: FC = () => {
     const newState = counter <= 1 ? 1 : counter - 1;
     setCounter(newState);
   };
+
+  useImperativeHandle(ref, () => ({ counter }));
 
   return (
     <Container gap={20}>
@@ -35,6 +41,6 @@ const Counter: FC = () => {
       </Typography>
     </Container>
   );
-};
+});
 
 export default Counter;
