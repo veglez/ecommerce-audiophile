@@ -1,4 +1,4 @@
-import { Icon } from "@components/Icon";
+import BaseIcon from "@components/Icon/BaseIcon";
 import Button from "components/Button";
 import React, { FC } from "react";
 import {
@@ -26,7 +26,7 @@ const CardNavigationLink: FC<ICardNavigationLinkProps> = (props) => {
       <Button
         text="shop"
         type="withIcon"
-        Icon={<Icon src={icon} width={5} height={10} />}
+        Icon={<BaseIcon src={icon} width={5} height={10} />}
       />
     </StyledArticle>
   );

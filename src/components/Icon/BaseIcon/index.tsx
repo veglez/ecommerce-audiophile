@@ -12,7 +12,7 @@ interface IIconProps extends ISize {
   onClick?: () => void;
 }
 
-export const Icon: FC<IIconProps> = (props) => {
+const Icon: FC<IIconProps> = (props) => {
   const { width, height, src, alt, ...rest } = props;
   return (
     <StyledIcon {...rest} width={width} height={height}>
@@ -21,3 +21,5 @@ export const Icon: FC<IIconProps> = (props) => {
     </StyledIcon>
   );
 };
+
+export default Icon;
