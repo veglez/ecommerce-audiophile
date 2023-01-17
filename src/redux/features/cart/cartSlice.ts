@@ -64,8 +64,50 @@ export const cartSlice = createSlice({
       state.shipping = 50;
       state.total = state.shipping + state.subtotal + state.vat;
     },
+    removeProducts: (state, action: PayloadAction<productCounter>) => {
+      const {
+        payload: { product, count },
+      } = action;
+
+      const item = state.products.find(
+        (productQuantity) => productQuantity.product.id === product.id
+      );
+
+      if (item) {
+        const newQuantity = item.count - count;
+        if (newQuantity < 1) {
+          state.products = state.products.filter(
+            (item) => item.product.id !== product.id
+          );
+        } else {
+          state.products = state.products.map((item) => {
+            if (item.product.id === product.id) {
+              return {
+                ...item,
+                count: newQuantity,
+              };
+            }
+
+            return item;
+          });
+        }
+      }
+
+      state.totalItems -= count;
+      state.subtotal -= count * product.price;
+      state.vat = state.vat - count * product.price * 0.16;
+      state.shipping = state.totalItems < 1 ? 0 : state.shipping;
+    },
+    removeAll: (state) => {
+      state.products = [];
+      state.shipping = 0;
+      state.subtotal = 0;
+      state.totalItems = 0;
+      state.vat = 0;
+      state.total = 0;
+    },
   },
 });
 
-export const { addProducts } = cartSlice.actions;
+export const { addProducts, removeProducts, removeAll } = cartSlice.actions;
 export default cartSlice.reducer;

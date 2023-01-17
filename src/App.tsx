@@ -7,8 +7,18 @@ import Header from "./layout/Header";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import Globals from "@styles/Globals";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchAllProducts } from "@redux/features/product/productSlice";
+import { AppDispatch } from "@redux/store";
 
 const App = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllProducts());
+  }, []);
+
   return (
     <>
       <Globals />

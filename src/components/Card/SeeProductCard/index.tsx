@@ -1,38 +1,22 @@
 import { FC } from "react";
 import Typography from "@components/Typography";
 import Button from "@components/Button";
-import { Picture } from "./styles.seeproductcard";
 import Flex from "@components/UI/Flex";
-import { breakpoints } from "@styles/theme/default";
+import { PickRequired } from "types/utilities";
+import ResponsiveImage from "@components/ResponsiveImage";
 
-export interface ISeeProductCard {
-  src: {
-    mobile: string;
-    tablet: string;
-    desktop: string;
-  };
-  title: string;
+type ISeeProductCard = PickRequired<API.Product, "name" | "image"> & {
   alt?: string;
-}
+};
 
 const SeeProductCard: FC<ISeeProductCard> = (props) => {
-  const { src, title, alt } = props;
+  const { image, name, alt } = props;
   return (
     <Flex as="article" direction="column" gap={32}>
-      <Picture>
-        <source
-          media={`(min-width: ${breakpoints.desktop})`}
-          srcSet={src.desktop}
-        />
-        <source
-          media={`(min-width: ${breakpoints.tablet})`}
-          srcSet={src.tablet}
-        />
-        <img src={src.mobile} alt={alt ?? `${title} image`} />
-      </Picture>
+      <ResponsiveImage name={name} image={image} />
 
       <Typography variant="h5" as={"h3"}>
-        {title}
+        {name}
       </Typography>
 
       <Button text="see product" type="filled" />

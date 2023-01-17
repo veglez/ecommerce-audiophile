@@ -11,7 +11,7 @@ import FloatingNumber from "@components/Icon/FloatingNumber";
 import { useSelector } from "react-redux";
 import { RootState } from "@redux/store";
 import Modal from "@components/UI/Modal";
-import Cart from "@components/Cart";
+import Cart from "@components/Card/Cart";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,10 +21,12 @@ const Header = () => {
 
   const handleToggleMenu = () => {
     setIsOpen((previousState) => !previousState);
+    isCartOpen && setIsCartOpen(false);
   };
 
   const handleToggleCart = () => {
     setIsCartOpen((previousState) => !previousState);
+    isOpen && setIsOpen(false);
   };
 
   const state = useSelector((state: RootState) => state.cart);
@@ -57,7 +59,7 @@ const Header = () => {
         </Modal>
       )}
       <Modal isVisible={isCartOpen}>
-        <Cart />
+        <Cart handleCloseModal={() => setIsCartOpen(false)} />
       </Modal>
     </>
   );

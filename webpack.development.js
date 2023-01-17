@@ -9,6 +9,9 @@ const devConfig = {
     open: true,
     historyApiFallback: true,
   },
+  output: {
+    publicPath: "/",
+  },
   mode: "development",
 };
 

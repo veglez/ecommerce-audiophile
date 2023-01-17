@@ -1,25 +1,11 @@
 import ProductDetailsCard from "@components/Card/ProductDetailsCard";
-import { APIResponse } from "mocks/handlers";
-import { useEffect, useState } from "react";
+import { RootState } from "@redux/store";
+import { useSelector } from "react-redux";
 
 const ProductDetails = () => {
-  const [products, setProducts] = useState<API.Product[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    window
-      .fetch("/products")
-      .then((response) => response.json())
-      .then((results: APIResponse) => {
-        setProducts(results.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+  const { error, loading, products } = useSelector(
+    (state: RootState) => state.products
+  );
 
   if (loading) {
     return <p>Loading....</p>;

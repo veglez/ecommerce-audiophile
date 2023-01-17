@@ -2,12 +2,12 @@ import Button from "@components/Button";
 import Counter, { ICounterRef } from "@components/Counter";
 import Typography from "@components/Typography";
 import Flex from "@components/UI/Flex";
-import { breakpoints } from "@styles/theme/default";
 import { FC, useRef } from "react";
 import { PickRequired } from "types/utilities";
 import { NewProductText } from "./styles.productdetailscard";
 import { useDispatch } from "react-redux";
 import { addProducts } from "@redux/features/cart/cartSlice";
+import ResponsiveImage from "@components/ResponsiveImage";
 
 export type IProductDetailsCardProps = PickRequired<
   API.Product,
@@ -21,17 +21,7 @@ const ProductDetailsCard: FC<IProductDetailsCardProps> = (props) => {
 
   return (
     <Flex as="article" gap={32} direction={"column"}>
-      <picture>
-        <source
-          media={`(min-width: ${breakpoints.desktop})`}
-          srcSet={image.desktop}
-        />
-        <source
-          media={`(min-width: ${breakpoints.tablet})`}
-          srcSet={image.tablet}
-        />
-        <img src={image.mobile} alt={`${name} image`} />
-      </picture>
+      <ResponsiveImage name={name} image={image} />
 
       <Flex gap={24} align={"flex-start"} direction={"column"}>
         {isNew && (

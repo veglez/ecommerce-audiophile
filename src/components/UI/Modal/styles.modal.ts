@@ -13,4 +13,5 @@ export const Portal = styled.div<{ isVisible: boolean }>`
     ${({ theme }) => theme.pallete.neutral.black.slice(1).split("").join(",")},
     0.4
   );
+  padding: 24px;
 `;

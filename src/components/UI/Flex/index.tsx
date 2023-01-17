@@ -23,6 +23,7 @@ const Container = styled.div<IFlexProps>`
   justify-content: ${(props) => props.justify};
   flex-direction: ${(props) => props.direction};
   gap: ${(props) => props.gap}px;
+  width: 100%;
 `;
 
 const Flex: FC<withHTMLAttributes<IFlexProps>> = (props) => {
