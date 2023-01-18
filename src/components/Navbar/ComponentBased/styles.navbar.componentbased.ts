@@ -13,4 +13,8 @@ export const StyledComponentBasedNavbar = styled(StyledNavbar)`
     width: 100%;
     max-width: 375px;
   }
+
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    flex-direction: row;
+  } ;
 `;

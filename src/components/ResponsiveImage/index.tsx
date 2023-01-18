@@ -7,7 +7,7 @@ type IResponsiveImageProps = PickRequired<API.Product, "image" | "name"> &
   Partial<IPictureStylesProps>;
 
 const ResponsiveImage: FC<IResponsiveImageProps> = (props) => {
-  const { image, name, maxWidth = 350, borderRadius = 0 } = props;
+  const { image, name, maxWidth = 350, borderRadius = 8 } = props;
 
   return (
     <Picture maxWidth={maxWidth} borderRadius={borderRadius}>

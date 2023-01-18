@@ -33,12 +33,7 @@ const ProductQuantity: FC<IProductQuantityProps> = (props) => {
   };
   return (
     <Flex gap={17} justify="space-between" style={{ width: "100%" }}>
-      <ResponsiveImage
-        name={name}
-        image={image}
-        maxWidth={64}
-        borderRadius={8}
-      />
+      <ResponsiveImage name={name} image={image} maxWidth={64} />
       <Flex direction="column" align="flex-start">
         <Typography>{name}</Typography>
         <Typography variant="overline" style={{ opacity: 0.5 }}>
