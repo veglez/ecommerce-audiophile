@@ -11,7 +11,9 @@ const Category = () => {
   const { products: allProducts } = useSelector(
     (state: RootState) => state.products
   );
-  const products = allProducts.filter((item) => item.category === category);
+  const products = allProducts.filter(
+    (item: API.Product) => item.category === category
+  );
 
   return (
     <div>

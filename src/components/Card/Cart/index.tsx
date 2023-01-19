@@ -8,6 +8,7 @@ import { Container } from "./cart.styles";
 import { Link } from "react-router-dom";
 import { FC } from "react";
 import { removeAll } from "@redux/features/cart/cartSlice";
+import Temporal from "@components/Temporal";
 
 interface ICartProps {
   handleCloseModal?: () => void;
@@ -30,7 +31,11 @@ const Cart: FC<ICartProps> = (props) => {
       </Flex>
       <Flex direction="column" gap={24} style={{ marginBlock: 8 }}>
         {state.products.map((item) => (
-          <ProductQuantity key={item.product.id} {...item.product} />
+          <ProductQuantity
+            key={item.product.id}
+            {...item.product}
+            Element={<Temporal {...item.product} />}
+          />
         ))}
       </Flex>
       <Flex justify="space-between">
