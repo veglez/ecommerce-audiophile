@@ -1,7 +1,11 @@
-import React from "react";
+import FormCheckout from "@containers/Form/Checkout";
 
 const Checkout = () => {
-  return <div>Checkout</div>;
+  return (
+    <div>
+      <FormCheckout />
+    </div>
+  );
 };
 
 export default Checkout;

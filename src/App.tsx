@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchAllProducts } from "@redux/features/product/productSlice";
 import { AppDispatch } from "@redux/store";
-import Summary from "@containers/Card/Summary";
 
 const App = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -24,7 +23,6 @@ const App = () => {
     <>
       <Globals />
       <Header />
-      <Summary />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

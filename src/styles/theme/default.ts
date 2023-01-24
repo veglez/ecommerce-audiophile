@@ -21,6 +21,10 @@ const myTheme: DefaultTheme = {
       black: "#000",
       white: "#FFF",
     },
+    alerts: {
+      normal: "#CFCFCF",
+      error: "#CD2C2C",
+    },
   },
   typography: {
     families: {

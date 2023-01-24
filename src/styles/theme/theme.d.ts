@@ -16,6 +16,10 @@ declare module "styled-components" {
         black: string;
         white: string;
       };
+      alerts: {
+        normal: string;
+        error: string;
+      };
     };
     typography: {
       families: {
