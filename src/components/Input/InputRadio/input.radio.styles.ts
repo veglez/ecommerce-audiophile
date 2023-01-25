@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.label`
   padding: 18px 16px;
   display: flex;
   gap: 16px;
