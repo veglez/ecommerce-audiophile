@@ -1,9 +1,10 @@
-import Button from "@components/Button";
+import Ad from "@components/Ad";
+import CardProductOverview from "@components/Card/CardProductOverview";
 import ComponentBased from "@components/Navbar/ComponentBased";
 import { RootState } from "@redux/store";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { Title } from "./styles.category";
+import { useParams } from "react-router-dom";
+import { Container, Title } from "./styles.category";
 
 const Category = () => {
   const { category } = useParams();
@@ -11,41 +12,31 @@ const Category = () => {
   const { products: allProducts } = useSelector(
     (state: RootState) => state.products
   );
-  const products = allProducts.filter(
-    (item: API.Product) => item.category === category
-  );
+  const products = allProducts
+    .filter((item: API.Product) => item.category === category)
+    .sort((a) => {
+      if (a.new) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
 
   return (
-    <div>
+    <>
       <Title variant="h4" align="center">
         {category}
       </Title>
-      {products.map((item) => {
-        return (
-          <Component
-            name={item.name}
-            key={item.id}
-            category={item.category}
-            id={item.id}
-          />
-        );
-      })}
+      <Container direction="column" gap={120}>
+        {products.map((item) => {
+          return <CardProductOverview key={item.id} {...item} />;
+        })}
 
-      <ComponentBased />
-    </div>
-  );
-};
+        <ComponentBased style={{ backgroundColor: "transparent" }} />
 
-const Component = (props: any) => {
-  const { name, category, id } = props;
-  return (
-    <div>
-      <h1>{name}</h1>
-      <p>{category}</p>
-      <Link to={`/product-details/${id}`}>
-        <Button text="see product" type="filled" />
-      </Link>
-    </div>
+        <Ad />
+      </Container>
+    </>
   );
 };
 

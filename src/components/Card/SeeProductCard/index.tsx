@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Typography from "@components/Typography";
-import Button from "@components/Button";
+import Button from "@components/Button/Base";
 import Flex from "@components/UI/Flex";
 import { PickRequired } from "types/utilities";
 import ResponsiveImage from "@components/ResponsiveImage";

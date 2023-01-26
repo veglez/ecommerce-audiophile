@@ -1,12 +1,15 @@
+import GoBack from "@components/Button/GoBack";
 import Summary from "@containers/Card/Summary";
 import FormCheckout from "@containers/Form/Checkout";
+import { Container } from "./checkout.styles";
 
 const Checkout = () => {
   return (
-    <div>
+    <Container>
+      <GoBack />
       <FormCheckout />
       <Summary />
-    </div>
+    </Container>
   );
 };
 

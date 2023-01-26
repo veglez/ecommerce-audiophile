@@ -1,25 +1,20 @@
-import Button from "@components/Button";
-import { RootState } from "@redux/store";
 import React from "react";
+import Ad from "@components/Ad";
+import Hero from "@components/Card/Hero";
+import ComponentBased from "@components/Navbar/ComponentBased";
+import { RootState } from "@redux/store";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 const Home = () => {
-  const state = useSelector((state: RootState) => state.cart);
+  const state = useSelector((state: RootState) => state.products);
+  const xx99 = state.products.find((item) => item.id === 4);
 
   return (
     <div>
-      <h1>Home</h1>
+      <Hero {...(xx99 as API.Product)} />
 
-      <p>En el carrito de compras se encuentran los siguientes productos:</p>
-
-      {state.products.map((item) => {
-        return <p key={item.product.id}>{item.product.name}</p>;
-      })}
-
-      <Link to={"/product-details"}>
-        <Button text="Ir a productos" type="filled" />{" "}
-      </Link>
+      <ComponentBased />
+      <Ad />
     </div>
   );
 };

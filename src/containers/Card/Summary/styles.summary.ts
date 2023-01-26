@@ -12,4 +12,6 @@ export const TypographyStyled = styled(Typography)<{ isOrange: boolean }>`
 
 export const Container = styled(Flex)`
   padding: 32px 24px;
+  background-color: ${({ theme }) => theme.pallete.neutral.white};
+  border-radius: 8px;
 `;

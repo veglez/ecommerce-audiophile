@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchAllProducts } from "@redux/features/product/productSlice";
 import { AppDispatch } from "@redux/store";
+import { MainStyled } from "@styles/App";
+import Footer from "layout/Footer";
 
 const App = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -23,7 +25,7 @@ const App = () => {
     <>
       <Globals />
       <Header />
-      <main>
+      <MainStyled>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/category/:category" element={<Category />} />
@@ -32,8 +34,8 @@ const App = () => {
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </main>
-      <footer>Este es el footer</footer>
+      </MainStyled>
+      <Footer />
     </>
   );
 };

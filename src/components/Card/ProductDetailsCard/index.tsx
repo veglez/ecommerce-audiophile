@@ -1,4 +1,4 @@
-import Button from "@components/Button";
+import Button from "@components/Button/Base";
 import Counter, { ICounterRef } from "@components/Counter";
 import Typography from "@components/Typography";
 import Flex from "@components/UI/Flex";

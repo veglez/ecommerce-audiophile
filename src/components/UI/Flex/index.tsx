@@ -33,7 +33,7 @@ const Flex: FC<withHTMLAttributes<IFlexProps>> = (props) => {
     align = "center",
     justify = "center",
     children,
-    gap,
+    gap = 0,
     ...rest
   } = props;
   return (

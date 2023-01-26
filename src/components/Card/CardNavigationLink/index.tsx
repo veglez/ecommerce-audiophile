@@ -1,5 +1,5 @@
 import BaseIcon from "@components/Icon/BaseIcon";
-import Button from "components/Button";
+import Button from "@components/Button/Base";
 import React, { FC } from "react";
 import {
   StyledPicture,
