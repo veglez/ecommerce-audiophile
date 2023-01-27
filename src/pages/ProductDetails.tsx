@@ -1,6 +1,9 @@
+import Ad from "@components/Ad/Base";
 import ProductDetailsCard from "@components/Card/ProductDetailsCard";
 import SeeProductCard from "@components/Card/SeeProductCard";
 import Gallery from "@components/Gallery";
+import ComponentBased from "@components/Navbar/ComponentBased";
+import ProductFeatures from "@components/ProductFeatures";
 import Typography from "@components/Typography";
 import Flex from "@components/UI/Flex";
 import { RootState } from "@redux/store";
@@ -35,6 +38,8 @@ const ProductDetails = () => {
 
       <ProductDetailsCard {...product} />
 
+      <ProductFeatures {...product} />
+
       <Gallery {...product.gallery} />
       <section>
         <Typography align="center" variant="h5" as={"h3"}>
@@ -47,6 +52,8 @@ const ProductDetails = () => {
           ))}
         </Flex>
       </section>
+      <ComponentBased />
+      <Ad />
     </div>
   );
 };

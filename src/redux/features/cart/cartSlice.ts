@@ -61,6 +61,7 @@ export const cartSlice = createSlice({
       state.totalItems += count;
       state.subtotal += price * count;
       state.vat += price * 0.16 * count;
+      state.vat = Number(state.vat.toFixed(2));
       state.shipping = 50;
       state.total = state.shipping + state.subtotal + state.vat;
     },

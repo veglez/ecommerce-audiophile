@@ -45,13 +45,19 @@ const Cart: FC<ICartProps> = (props) => {
         <Typography variant="h6">$ {state.subtotal}</Typography>
       </Flex>
 
-      <Link to="/checkout" style={{ width: "100%" }} onClick={handleCloseModal}>
-        <Button
-          text="checkout"
-          type="filled"
-          style={{ justifyContent: "center", width: "100%" }}
-        />
-      </Link>
+      {state.products.length > 0 && (
+        <Link
+          to="/checkout"
+          style={{ width: "100%" }}
+          onClick={handleCloseModal}
+        >
+          <Button
+            text="checkout"
+            type="filled"
+            style={{ justifyContent: "center", width: "100%" }}
+          />
+        </Link>
+      )}
     </Container>
   );
 };

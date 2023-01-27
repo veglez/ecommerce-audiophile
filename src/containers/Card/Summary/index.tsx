@@ -23,7 +23,12 @@ const Price: FC<{ text: string; price: string; isOrange?: boolean }> = (
   );
 };
 
-const Summary = () => {
+export interface ISummaryProps {
+  onClick: React.MouseEventHandler<HTMLElement>;
+}
+
+const Summary: FC<ISummaryProps> = (props) => {
+  const { onClick } = props;
   const cartState = useSelector((state: RootState) => state.cart);
 
   return (
@@ -52,7 +57,7 @@ const Summary = () => {
         <Price text="vat (included)" price={`$ ${cartState.vat}`} />
         <Price isOrange text="grand total" price={`$ ${cartState.total}`} />
       </Flex>
-      <Button text="continue & pay" type="filled" />
+      <Button onClick={onClick} text="continue & pay" type="filled" />
     </Container>
   );
 };

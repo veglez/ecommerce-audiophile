@@ -7,19 +7,23 @@ import Header from "./layout/Header";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
 import Globals from "@styles/Globals";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchAllProducts } from "@redux/features/product/productSlice";
-import { AppDispatch } from "@redux/store";
+import { AppDispatch, RootState } from "@redux/store";
 import { MainStyled } from "@styles/App";
 import Footer from "layout/Footer";
 
 const App = () => {
   const dispatch: AppDispatch = useDispatch();
-
+  const productState = useSelector((store: RootState) => store.products);
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, []);
+
+  if (productState.loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>

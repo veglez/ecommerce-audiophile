@@ -1,4 +1,4 @@
-import Ad from "@components/Ad";
+import Ad from "@components/Ad/Base";
 import CardProductOverview from "@components/Card/CardProductOverview";
 import ComponentBased from "@components/Navbar/ComponentBased";
 import { RootState } from "@redux/store";

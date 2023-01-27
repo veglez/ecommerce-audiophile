@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import ReactDOM from "react-dom";
 import { withHTMLAttributes } from "types/utilities";
 import { Portal } from "./styles.modal";
