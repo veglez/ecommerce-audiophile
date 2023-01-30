@@ -2,6 +2,7 @@ import Ad from "@components/Ad/Base";
 import CardProductOverview from "@components/Card/CardProductOverview";
 import ComponentBased from "@components/Navbar/ComponentBased";
 import { RootState } from "@redux/store";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Container, Title } from "./styles.category";
@@ -22,6 +23,10 @@ const Category = () => {
       }
     });
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Title variant="h4" align="center">
@@ -34,7 +39,7 @@ const Category = () => {
 
         <ComponentBased style={{ backgroundColor: "transparent" }} />
 
-        <Ad />
+        <Ad style={{ marginBlockEnd: "56px" }} />
       </Container>
     </>
   );

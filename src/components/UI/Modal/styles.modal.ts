@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const Portal = styled.div<{ isVisible: boolean }>`
+export type PortalStyles = {
+  isVisible: boolean;
+  padding?: number;
+};
+
+export const Portal = styled.div<PortalStyles>`
   position: absolute;
   top: 93px;
   right: ${(props) => (props.isVisible ? 0 : "100vw")};
@@ -13,5 +18,5 @@ export const Portal = styled.div<{ isVisible: boolean }>`
     ${({ theme }) => theme.pallete.neutral.black.slice(1).split("").join(",")},
     0.4
   );
-  padding: 24px;
+  padding: ${(props) => props.padding}px;
 `;

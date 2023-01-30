@@ -25,7 +25,7 @@ const CardNavigationLink: FC<ICardNavigationLinkProps> = (props) => {
 
       <Button
         text="shop"
-        type="withIcon"
+        variant="withIcon"
         Icon={<BaseIcon src={icon} width={5} height={10} />}
       />
     </StyledArticle>

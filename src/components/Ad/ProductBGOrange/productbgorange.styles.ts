@@ -7,6 +7,7 @@ export const Container = styled(Flex)`
   position: relative;
   overflow: hidden;
   padding: 55px 24px;
+  border-radius: 8px;
 
   & .circle {
     background-color: transparent;

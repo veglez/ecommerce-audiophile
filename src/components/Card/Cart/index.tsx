@@ -53,7 +53,7 @@ const Cart: FC<ICartProps> = (props) => {
         >
           <Button
             text="checkout"
-            type="filled"
+            variant="filled"
             style={{ justifyContent: "center", width: "100%" }}
           />
         </Link>

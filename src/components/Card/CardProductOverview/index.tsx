@@ -29,7 +29,7 @@ const CardProductOverview: FC<ICardProductOverviewProps> = (props) => {
           {description}
         </Typography>
         <Link to={`/product-details/${id}`}>
-          <Button text={"see product"} type="filled" />
+          <Button text={"see product"} variant="filled" />
         </Link>
       </Flex>
     </Flex>

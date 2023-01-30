@@ -29,7 +29,7 @@ const AdSimpleProduct = () => {
         <Link to={`/product-details/${product.id}`}>
           <Button
             text="see product"
-            type="outlined"
+            variant="outlined"
             style={{
               color: "black",
               background: "transparent",

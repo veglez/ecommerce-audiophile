@@ -54,7 +54,7 @@ const Header = () => {
       </StyledHeader>
 
       {matchViewport && (
-        <Modal isVisible={isOpen}>
+        <Modal isVisible={isOpen} padding={0}>
           <ComponentBased onClick={() => setIsOpen(false)} />
         </Modal>
       )}

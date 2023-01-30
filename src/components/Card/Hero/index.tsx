@@ -30,7 +30,7 @@ const Hero: FC<IHeroProps> = (props) => {
         <Button
           style={{ position: "relative" }}
           text="see product"
-          type="filled"
+          variant="filled"
         />
       </Link>
     </Container>

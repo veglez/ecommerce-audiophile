@@ -9,6 +9,7 @@ import Flex from "@components/UI/Flex";
 import { RootState } from "@redux/store";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { BackButtonStyled, Container, Navbar } from "./productdetails.styles";
 
 const ProductDetails = () => {
   const { error, loading, products } = useSelector(
@@ -33,14 +34,16 @@ const ProductDetails = () => {
   }
 
   return (
-    <div>
-      <h2>Product Details page</h2>
+    <Container direction="column" gap={120}>
+      <BackButtonStyled />
 
-      <ProductDetailsCard {...product} />
+      <Flex direction="column" gap={88}>
+        <ProductDetailsCard {...product} />
 
-      <ProductFeatures {...product} />
+        <ProductFeatures {...product} />
 
-      <Gallery {...product.gallery} />
+        <Gallery {...product.gallery} />
+      </Flex>
       <section>
         <Typography align="center" variant="h5" as={"h3"}>
           you may also like
@@ -52,9 +55,9 @@ const ProductDetails = () => {
           ))}
         </Flex>
       </section>
-      <ComponentBased />
-      <Ad />
-    </div>
+      <Navbar />
+      <Ad style={{ marginBlockEnd: 104 }} />
+    </Container>
   );
 };
 

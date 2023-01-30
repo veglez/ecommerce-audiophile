@@ -7,11 +7,14 @@ import InputRadio from "@components/Input/InputRadio";
 import FormSection from "../Section";
 import typeInference from "utilities/typeInference";
 import Typography from "@components/Typography";
-import { FormStyled } from "./checkout.styles";
+import { FormStyled, InputSection } from "./checkout.styles";
+import Summary from "@components/Card/Summary";
+import { FC } from "react";
 
 const paymentMethods = ["e-Money", "Cash on Delivery"];
 
-const FormCheckout = () => {
+const FormCheckout: FC<React.HTMLAttributes<HTMLElement>> = (props) => {
+  const { onClick } = props;
   const {
     handleSubmit,
     register,
@@ -34,6 +37,8 @@ const FormCheckout = () => {
   const handleData = (data: any) => {
     // console.log({ data });
     window.localStorage.setItem("checkoutForm", JSON.stringify(data));
+    onClick();
+    window.scrollTo(0, 0);
   };
 
   const billingDetailsSection = typeInference([
@@ -129,7 +134,7 @@ const FormCheckout = () => {
     {
       component: InputText,
       props: {
-        values: "e-money PIN",
+        label: "e-money PIN",
         ...register("emoneyPin", {
           required: { value: true, message: "Wrong format" },
         }),
@@ -138,14 +143,16 @@ const FormCheckout = () => {
   ]);
 
   return (
-    <FormStyled onSubmit={handleSubmit(handleData)}>
-      <Typography variant="h4" style={{ marginBlockEnd: 32 }}>
-        Checkout
-      </Typography>
-      <FormSection title="Billing details" inputs={billingDetailsSection} />
-      <FormSection title="shipping info" inputs={shippingInfoSection} />
-      <FormSection title="payment details" inputs={paymentDetails} />
-      {/* <button type="submit">enviar</button> */}
+    <FormStyled id="checkoutForm" onSubmit={handleSubmit(handleData)}>
+      <InputSection>
+        <Typography variant="h4" style={{ marginBlockEnd: 32 }}>
+          Checkout
+        </Typography>
+        <FormSection title="Billing details" inputs={billingDetailsSection} />
+        <FormSection title="shipping info" inputs={shippingInfoSection} />
+        <FormSection title="payment details" inputs={paymentDetails} />
+      </InputSection>
+      <Summary style={{ marginBlockStart: 32 }} />
     </FormStyled>
   );
 };

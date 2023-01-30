@@ -5,20 +5,22 @@ import { ButtonStyled } from "./styles.button";
 export type IButtonProps =
   | {
       text: string;
-      type: "filled" | "outlined";
+      variant: "filled" | "outlined";
       Icon?: never;
     }
   | {
       text: string;
-      type: "withIcon";
+      variant: "withIcon";
       Icon: React.ReactNode;
     };
 
-const Button: FC<withHTMLAttributes<IButtonProps>> = (props) => {
-  const { text, type, Icon, ...rest } = props;
+const Button: FC<
+  IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+> = (props) => {
+  const { text, variant, Icon, ...rest } = props;
 
   return (
-    <ButtonStyled innerType={type} {...rest}>
+    <ButtonStyled innerType={variant} {...rest}>
       <span className="button__text">{text}</span>
       {Icon && Icon}
     </ButtonStyled>

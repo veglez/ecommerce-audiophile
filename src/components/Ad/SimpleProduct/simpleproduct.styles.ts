@@ -5,6 +5,7 @@ export const Container = styled.div`
   min-height: 320px;
   height: 320px;
   padding: 101px 24px;
+  width: 100%;
 
   & > * {
     position: relative;

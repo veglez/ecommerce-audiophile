@@ -1,8 +1,6 @@
 import Button from "@components/Button/Base";
 import ResponsiveImage from "@components/ResponsiveImage";
-import Typography from "@components/Typography";
 import { FC } from "react";
-import { PickRequired } from "types/utilities";
 import {
   Title,
   Container,
@@ -46,7 +44,7 @@ const ProductBGOrange: FC<IProductBGOrange> = (props) => {
       <Link to={`/product-details/${desireProduct.id}`}>
         <Button
           text="see product"
-          type="filled"
+          variant="filled"
           style={{ backgroundColor: "black" }}
         />
       </Link>

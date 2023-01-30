@@ -44,7 +44,7 @@ const ProductDetailsCard: FC<IProductDetailsCardProps> = (props) => {
       >
         <Counter ref={counterRef} />
         <Button
-          type="filled"
+          variant="filled"
           text="add to cart"
           onClick={() => {
             dispatch(

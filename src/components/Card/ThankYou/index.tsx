@@ -27,7 +27,7 @@ const ThankYou = () => {
 
       <CartSummary />
       <Link to={"/"}>
-        <Button text="back to home" type="filled" />
+        <Button text="back to home" variant="filled" />
       </Link>
     </MainContainer>
   );

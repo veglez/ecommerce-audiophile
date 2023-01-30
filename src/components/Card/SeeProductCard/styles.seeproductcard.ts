@@ -9,5 +9,5 @@ export const Container = styled.div`
 
 export const Picture = styled.picture`
   width: 100%;
-  max-width: 350px;
+  /* max-width: 350px; */
 `;

@@ -28,7 +28,7 @@ const SeeProductCard: FC<ISeeProductCard> = (props) => {
       </Typography>
 
       <Link to={`/product-details/${getIdFromSlug(slug as string)}`}>
-        <Button text="see product" type="filled" />
+        <Button text="see product" variant="filled" />
       </Link>
     </Flex>
   );

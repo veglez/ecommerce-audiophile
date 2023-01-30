@@ -6,7 +6,7 @@ import styled, {
 } from "styled-components";
 import { IButtonProps } from ".";
 
-type Inner = IButtonProps["type"];
+type Inner = IButtonProps["variant"];
 
 const variants: Record<
   Inner,

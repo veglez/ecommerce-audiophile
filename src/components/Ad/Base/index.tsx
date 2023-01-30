@@ -4,16 +4,16 @@ import tablet from "@images/shared/tablet/image-best-gear.jpg";
 import mobile from "@images/shared/mobile/image-best-gear.jpg";
 import Typography from "@components/Typography";
 import { Title, OrangeText } from "./ad.styles";
+import { FC } from "react";
 
 const images: API.Product["image"] = {
   desktop,
   tablet,
   mobile,
 };
-
-const Ad = () => {
+const Ad: FC<React.HTMLAttributes<HTMLElement>> = (props) => {
   return (
-    <div>
+    <div {...props}>
       <ResponsiveImage image={images} name="best gear" />
       <Title variant="h4" align="center">
         Bringing you the{" "}
