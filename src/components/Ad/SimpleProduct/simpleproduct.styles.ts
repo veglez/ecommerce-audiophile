@@ -11,6 +11,10 @@ export const Container = styled.div`
     position: relative;
     z-index: 10;
   }
+
+  @media screen and (min-width: ${(p) => p.theme.breakpoints.tablet}) {
+    padding-inline-start: 62px;
+  }
 `;
 
 export const ImgContainer = styled.div`
@@ -23,5 +27,10 @@ export const ImgContainer = styled.div`
 
   & picture {
     height: 100%;
+
+    @media screen and (min-width: ${(p) => p.theme.breakpoints.tablet}) {
+      width: 100%;
+      max-width: inherit;
+    }
   }
 `;

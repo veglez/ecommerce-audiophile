@@ -29,14 +29,30 @@ export const Container = styled(Flex)<ContainerProps>`
   }
 
   @media screen and (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    padding: 126px 195px 167px;
+    height: 639px;
     &::before {
       background-image: url(${(props) => props.images.tablet});
+      background-size: 100% 100%;
     }
   }
 
   @media screen and (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    align-items: flex-start;
+    padding-inline-start: 165px;
+
     &::before {
       background-image: url(${(props) => props.images.desktop});
+    }
+
+    & #container {
+      max-width: 379px;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    & div a {
+      margin-block-start: 16px;
     }
   }
 
@@ -58,4 +74,12 @@ export const ProductName = styled.p`
   text-align: center;
   position: relative;
   margin-block: 16px 24px;
+
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    font-size: 5.6rem;
+    line-height: 5.8rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    margin: 0px;
+  }
 `;

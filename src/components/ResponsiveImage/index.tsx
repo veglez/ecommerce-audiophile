@@ -6,11 +6,13 @@ import { IPictureStylesProps, Picture } from "./styles.responsiveimage";
 type IResponsiveImageProps = PickRequired<API.Product, "image" | "name"> &
   Partial<IPictureStylesProps>;
 
-const ResponsiveImage: FC<IResponsiveImageProps> = (props) => {
-  const { image, name, maxWidth = 375, borderRadius = 8 } = props;
+const ResponsiveImage: FC<
+  IResponsiveImageProps & React.HTMLAttributes<HTMLElement>
+> = (props) => {
+  const { image, name, maxWidth = 375, borderRadius = 8, ...rest } = props;
 
   return (
-    <Picture maxWidth={maxWidth} borderRadius={borderRadius}>
+    <Picture maxWidth={maxWidth} borderRadius={borderRadius} {...rest}>
       <source
         media={`(min-width: ${breakpoints.desktop})`}
         srcSet={image.desktop}

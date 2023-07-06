@@ -6,3 +6,10 @@ export const Main = styled(Flex)`
   background-color: ${(props) => props.theme.pallete.main.gray};
   border-radius: 8px;
 `;
+
+export const Container = styled(Flex)`
+  @media screen and (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    flex-direction: row;
+    align-items: stretch;
+  }
+`;

@@ -6,7 +6,7 @@ import { RootState } from "@redux/store";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Main } from "./Third.styles";
+import { Container, Main } from "./Third.styles";
 import desktop from "@images/home/desktop/image-earphones-yx1.jpg";
 import tablet from "@images/home/tablet/image-earphones-yx1.jpg";
 import mobile from "@images/home/mobile/image-earphones-yx1.jpg";
@@ -23,7 +23,7 @@ const Third: FC<IAdThirdProps> = (props) => {
   } = props;
 
   return (
-    <Flex direction="column" gap={24}>
+    <Container direction="column" gap={24}>
       <ResponsiveImage image={image} name={name} />
       <Main direction="column" gap={32} align="flex-start">
         <Typography variant="h4">{name}</Typography>
@@ -39,7 +39,7 @@ const Third: FC<IAdThirdProps> = (props) => {
           />
         </Link>
       </Main>
-    </Flex>
+    </Container>
   );
 };
 export default Third;
